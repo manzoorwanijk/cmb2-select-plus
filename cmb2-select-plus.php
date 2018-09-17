@@ -33,4 +33,4 @@ function cmb2_select_plus_autoload_classes( $class_name ) {
 	}
 }
 // press the trigger
-$cmb2_field_select_plus = new CMB2_Field_Select_Plus();
+$cmb2_field_select_plus = new Select_Plus_CMB2_Field();

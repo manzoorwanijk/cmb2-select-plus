@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class CMB2_Field_Select_Plus
+ * Class Select_Plus_CMB2_Field
  */
-class CMB2_Field_Select_Plus {
+class Select_Plus_CMB2_Field {
 
 	/**
 	 * Initialize the plugin by hooking into CMB2
@@ -21,12 +21,12 @@ class CMB2_Field_Select_Plus {
 
 	public function render_class_select_plus() {
 		
-		return 'CMB2_Type_Select_Plus';
+		return 'Select_Plus_CMB2_Type';
 	}
 
 	public function render_select_plus( $field, $escaped_value, $object_id, $object_type, $field_type_object ) {
 
-		$types = new CMB2_Types_Select_Plus( $field );
+		$types = new Select_Plus_CMB2_Types( $field );
 		$types->render();
 	}
 

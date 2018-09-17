@@ -4,7 +4,7 @@
  *
  * @since  1.0.0
  */
-class CMB2_Type_Select_Plus extends CMB2_Type_Multi_Base {
+class Select_Plus_CMB2_Type extends CMB2_Type_Multi_Base {
 
 	public function render() {
 

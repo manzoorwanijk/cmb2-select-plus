@@ -105,7 +105,7 @@ $cmb->add_field( array(
 ) );
 ```
 
-## Why `CMB2_Types_Select_Plus` class?
+## Why `Select_Plus_CMB2_Types` class?
 - This enables you to use it flexibly in case you need to just render the field, not the whole row.
 - It allows you to override the default args of the field
 ```php
@@ -124,7 +124,7 @@ $args = array(
 $field = new CMB2_Field( $args );
 
 // pass the field to custom class
-$types = new CMB2_Types_Select_Plus( $field );
+$types = new Select_Plus_CMB2_Types( $field );
 
 // render the field with new id and name
 echo $types->select_plus( array(
