@@ -19,7 +19,7 @@ spl_autoload_register( 'cmb2_select_plus_autoload_classes' );
 
 function cmb2_select_plus_autoload_classes( $class_name ) {
 	
-	if ( ! preg_match( '/^CMB2\w+?Select_Plus$/' , $class_name ) ) {
+	if ( 0 !== strpos( $class_name, 'Select_Plus_CMB2' ) ) {
 		return;
 	}
 
