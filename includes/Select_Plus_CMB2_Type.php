@@ -55,6 +55,13 @@ class Select_Plus_CMB2_Type extends CMB2_Type_Multi_Base {
 
 		if ( $option_none = $field->args( 'show_option_none' ) ) {
 
+			$option_none = true === $option_none ? esc_html__( 'None', 'cmb2-select-plus' ) : $option_none;
+
+			if ( null === $option_none ) {
+				$off_by_default = in_array( $args['type'], array( 'select', 'radio', 'radio_inline' ), true );
+				$option_none = $off_by_default ? false : esc_html__( 'None', 'cmb2-select-plus' );
+			}
+
 			$a['value'] = '';
 			$a['label'] = $option_none;
 			if ( in_array( '', $value ) ) {
