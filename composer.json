@@ -1,0 +1,20 @@
+{
+    "name": "manzoorwanijk/cmb2-select-plus",
+    "description": "Improved select field for CMB2",
+    "type": "wordpress-plugin",
+    "license": "GPL",
+    "require": {
+        "composer/installers": "~1.0 || ~2.0"
+    },
+    "autoload": {
+        "files": ["cmb2-select-plus.php"]
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    },
+    "extra": {
+        "installer-name": "cmb2-select-plus"
+    }
+}

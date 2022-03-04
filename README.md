@@ -18,6 +18,12 @@ You can install this field type as you would a WordPress plugin:
 
 Alternatively, you can include this field type within your plugin/theme.
 
+You may also install this field type using composer:
+
+```shell
+composer require manzoorwanijk/cmb2-select-plus
+```
+
 ## Usage
 
 #### Normal Select Field
