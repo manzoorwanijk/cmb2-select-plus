@@ -32,3 +32,5 @@ function cmb2_select_plus_autoload_classes( $class_name ) {
 		include_once( $file );
 	}
 }
+
+Select_Plus_CMB2_Field::get_instance();

@@ -6,6 +6,30 @@
 class Select_Plus_CMB2_Field {
 
 	/**
+	 * Class instance.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var self
+	 */
+	private static $instance = null;
+
+	/**
+	 * Return only one instance of this class.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return self
+	 */
+	public static function get_instance() {
+		if ( null === self::$instance ) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
+	}
+
+	/**
 	 * Initialize the plugin by hooking into CMB2
 	 */
 	public function __construct() {
@@ -20,7 +44,7 @@ class Select_Plus_CMB2_Field {
 	}
 
 	public function render_class_select_plus() {
-		
+
 		return 'Select_Plus_CMB2_Type';
 	}
 
