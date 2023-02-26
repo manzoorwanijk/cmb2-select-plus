@@ -18,7 +18,7 @@
 spl_autoload_register( 'cmb2_select_plus_autoload_classes' );
 
 function cmb2_select_plus_autoload_classes( $class_name ) {
-	
+
 	if ( 0 !== strpos( $class_name, 'Select_Plus_CMB2' ) ) {
 		return;
 	}
@@ -32,5 +32,5 @@ function cmb2_select_plus_autoload_classes( $class_name ) {
 		include_once( $file );
 	}
 }
-// press the trigger
-$cmb2_field_select_plus = new Select_Plus_CMB2_Field();
+
+Select_Plus_CMB2_Field::get_instance();
