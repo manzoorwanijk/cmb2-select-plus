@@ -40,7 +40,7 @@ class Select_Plus_CMB2_Field {
 		add_filter( 'cmb2_render_select_plus', array( $this, 'render_select_plus' ), 10, 5 );
 
 		// sanitize the value(s)
-		add_filter( 'cmb2_sanitize_select_plus', array( $this, 'sanitize_select_plus' ), 10, 5 );
+		add_filter( 'cmb2_sanitize_select_plus', array( $this, 'sanitize_select_plus' ), 10, 2 );
 	}
 
 	public function render_class_select_plus() {
@@ -54,16 +54,44 @@ class Select_Plus_CMB2_Field {
 		$types->render();
 	}
 
-	public function sanitize_select_plus( $check, $meta_value, $object_id, $field_args ) {
+	/**
+	 * Sanitize the input.
+	 *
+	 * @param  mixed $input  The input.
+	 *
+	 * @return mixed
+	 */
+	public static function sanitize( $input ) {
 
-		if ( ! is_array( $meta_value ) || ! $field_args['repeatable'] ) {
-			return sanitize_text_field( $meta_value );
+		if ( ! $input ) {
+			return $input;
 		}
 
-		foreach ( $meta_value as $key => $val ) {
-			$meta_value[ $key ] = array_map( 'sanitize_text_field', $val );
+		if ( is_array( $input ) ) {
+
+			$result = [];
+
+			foreach ( $input as $key => $value ) {
+
+				$result[ sanitize_text_field( $key ) ] = self::sanitize( $value );
+			}
+
+			return $result;
 		}
 
-		return $meta_value;
+		// These are safe types.
+		if ( is_bool( $input ) || is_int( $input ) || is_float( $input ) ) {
+			return $input;
+		}
+
+		if ( ! is_string( $input ) ) {
+			return '';
+		}
+
+		return sanitize_text_field( $input );
+	}
+
+	public function sanitize_select_plus( $check, $meta_value ) {
+		return self::sanitize( $meta_value );
 	}
 }
