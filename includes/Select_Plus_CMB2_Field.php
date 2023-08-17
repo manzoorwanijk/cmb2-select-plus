@@ -92,6 +92,6 @@ class Select_Plus_CMB2_Field {
 	}
 
 	public function sanitize_select_plus( $check, $meta_value ) {
-		return self::sanitize($meta_value);
+		return self::sanitize( $meta_value );
 	}
 }
